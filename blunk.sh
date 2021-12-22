@@ -57,7 +57,7 @@ echo "Updating System"
 sudo apt update
 echo "installing acrh'z"
 #sudo dpkg --add-architecture i386
-sudo dpkg --add-architecture armhf
+#sudo dpkg --add-architecture armhf
 #sudo dpkg --add-architecture armel
 sudo dpkg --add-architecture arm64
 echo "Fixings"
