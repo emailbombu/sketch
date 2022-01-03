@@ -50,7 +50,7 @@ fi
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 #curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o $/usr/share/keyrings/docker-archive-###keyring.gpg
-}
+#}
 
 update() {
 echo "Updating System"

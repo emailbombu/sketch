@@ -120,7 +120,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 link() {
 echo "Do You Want Remote Connection?"
 read yes
-if [ $yes == 'yes' ]; then
+if [ $yes = 'yes' ]; then
         x-terminal-emulator --tab --title='backend' -e "bash -c 'vank.sh'"]
         else
             echo "Hi"
