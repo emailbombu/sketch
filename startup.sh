@@ -30,14 +30,13 @@ check() {
 echo "$MACHINE_TYPE"
 echo "Would you like to add/remove architectures?"
 read archz
-if [ $archz == 'yes']
-    then
-        if [ $MACHINE_TYPE == 'x86_64' ]
+if [ $archz == 'yes' ]; then
+        if [ $MACHINE_TYPE == 'x86_64' ]; then
             sudo dpkg --add-architecture i386
             sudo dpkg --remove-architecture armhf
             sudo dpkg --remove-architecture armel
             sudo dpkg --remove-architecture arm64
-        	if [ $MACHINE_TYPE == 'arm64' ]
+        	if [ $MACHINE_TYPE == 'arm64' ]; then
             		sudo dpkg --add-architecture armhf
             		sudo dpkg --add-architecture armel
             		sudo dpkg --add-architecture arm64
@@ -46,43 +45,53 @@ if [ $archz == 'yes']
     #rm != $MACHINE_TYPE
             sudo dpkg --remove-architecture armhf
             sudo dpkg --remove-architecture armel
-            sudo dpkg --remove-architecture arm64
-	fi
+            #sudo dpkg --remove-architecture arm64
+	        #sudo dpkg --remove-architecture aarch64
+          fi
+        fi
+fi
 }
 
 run() {
-x-terminal-emulator --tab --title='frontend' -e "bash -c 'mkdir work && cd work && git clone https://github.com/emailbombu/sketch.git'"
+#x-terminal-emulator --tab --title='frontend' -e "bash -c 'mkdir work && cd work && git clone https://github.com/emailbombu/sketch.git'"
+./blunk.sh
 }
 
 drive() {
-if [ ${MACHINE_TYPE} == 'arm64' ]
-    elif [ ${MACHINE_TYPE} == 'aarch64' ]
-        elif [ ${MACHINE_TYPE} == 'armhf' ]
-            elif [ ${MACHINE_TYPE} == 'armel' ]
-then
-    echo "<file> does not exist on your filesystem."
+if [ $MACHINE_TYPE == 'arm64' ]; then
+    echo $MACHINE_TYPE
+    elif [ $MACHINE_TYPE == 'aarch64' ]; then
+            echo $MACHINE_TYPE   
+        elif [ $MACHINE_TYPE == 'armhf' ]; then
+                echo $MACHINE_TYPE
+            elif [ $MACHINE_TYPE == 'armel' ]; then
+        echo "$MACHINE_TYPE does not exist on your filesystem."
 else
     echo "Device Exists"
-    if [[ ! -f /dev/sda ]]
-        elif [[ ! -f /dev/sdd ]]
-            elif [[ ! -f /dev/sdc ]]
+    if [ ! -f /dev/sda ]; then
+        echo "SDA"
+        elif [ ! -f /dev/sdb ]]; then
+            echo "SDB"
+            elif [ ! -f /dev/sdc ]; then
+                echo "SDC"
     fi
 fi
 }
 
 yab() {
 echo "Which List?"
-read wall
-if [ ${wall} == 'a' ]
+read $wall
+if [ $wall == 'a' ]; then
     sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
     sudo cp blunk/sources.list /etc/apt/sources.list
-    elif [ ${wall} == 'b' ]
+    elif [ $wall == 'b' ]; then
         sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
         sudo cp blunk/sources.list.b /etc/apt/sources.list
-    elif [ ${wall} == 'c' ]
+    #elif [ $wall == 'c' ]; then
+     else
         sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
         sudo cp blunk/sources.list.c /etc/apt/sources.list
-if
+fi
 }
 
 spunk() {
@@ -91,17 +100,19 @@ x-terminal-emulator --tab --title='backend' -e "bash -c '~/work/sketch/blunk.sh'
 
 
 link() {
-echo "Do You Want Remote Connaction?"
+echo "Do You Want Remote Connection?"
 read yes
-if [ $yes == 'yes']
-    then
+if [ $yes == 'yes' ]; then
         x-terminal-emulator --tab --title='backend' -e "bash -c 'vank.sh'"]
         else
+            echo "Hi"
 fi
 }
 
 
 check
 run
-drive
+#yab
+#spunk
+#drive
 link
