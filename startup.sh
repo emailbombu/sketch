@@ -56,6 +56,7 @@ fi
 
 run() {
 #x-terminal-emulator --tab --title='frontend' -e "bash -c 'mkdir work && cd work && git clone https://github.com/emailbombu/sketch.git'"
+sudo apt update
 sudo apt install xfce4-terminal
 xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./blunk.sh; bash"' -T "Run and ready"
 }
@@ -102,6 +103,13 @@ if [ $wall = 'a' ]; then
         sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
         sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
 fi
+echo "Adding GPG Keys"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 }
 
 #spunk() {

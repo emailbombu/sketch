@@ -68,23 +68,47 @@ deb-src http://security.ubuntu.com/ubuntu hirsute-security multiverse
 
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute restricted main multiverse universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute restricted main multiverse universe
+#deb-src http://ports.ubuntu.com/ubuntu-ports hirsute main multiverse restricted universe
+
+
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-updates main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-updates main multiverse restricted universe
+
+
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-security main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-security main multiverse restricted universe
+
+
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-proposed main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-proposed main multiverse restricted universe
+
+
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-backports main multiverse restricted universe
+#deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-backports main multiverse restricted universe
+
+
+
+
+
+
+deb http://ports.ubuntu.com/ubuntu-ports hirsute restricted main multiverse universe
 deb-src http://ports.ubuntu.com/ubuntu-ports hirsute main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-updates main universe restricted multiverse
+deb http://ports.ubuntu.com/ubuntu-ports hirsute-updates main universe restricted multiverse
 deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-updates main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-security main universe restricted multiverse
+deb http://ports.ubuntu.com/ubuntu-ports hirsute-security main universe restricted multiverse
 deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-security main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-proposed main universe restricted multiverse
+deb http://ports.ubuntu.com/ubuntu-ports hirsute-proposed main universe restricted multiverse
 deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-proposed main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports hirsute-backports main multiverse restricted universe
+deb http://ports.ubuntu.com/ubuntu-ports hirsute-backports main multiverse restricted universe
 deb-src http://ports.ubuntu.com/ubuntu-ports hirsute-backports main multiverse restricted universe
 
 
