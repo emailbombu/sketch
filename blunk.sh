@@ -4,7 +4,7 @@ echo Hello World
 
 
 MONK=~/work/sketch
-FILE=~/blunk
+#FILE=~/blunk
 BOBO=~/work
 YUM=/etc/sources.list.bak
 
@@ -27,19 +27,19 @@ git clone https://github.com/emailbombu/sketch.git
 fi
 }
 
-mvSource() {
+#mvSource() {
 #if [ -f "$FILE" ]; then
     #echo "$FILE exists."
 #else 
     #echo "$FILE does not exist."
     #wget -O sources.list https://raw.githubusercontent.com/shell832/pancake/main/sources.list
-if [ -f "$YUM" ]; then
-  echo "$YUM exists."
-else 
-  sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #add rolling number to .bak.0++
-  sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
-fi
-}
+#if [ -f "$YUM" ]; then
+#  echo "$YUM exists."
+#else 
+#  sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #add rolling number to .bak.0++
+#  sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
+#fi
+#}
 
 keys() {
 echo "Adding GPG Keys"
