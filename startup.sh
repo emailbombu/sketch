@@ -90,7 +90,7 @@ if [ -f "$YUM" ]; then
   echo "$YUM exists."
 else 
 echo "Which List?"
-read $wall
+read wall
 if [ $wall = 'a' ]; then
     sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
     sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
