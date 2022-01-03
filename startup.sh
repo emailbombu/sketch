@@ -56,39 +56,39 @@ fi
 
 run() {
 #x-terminal-emulator --tab --title='frontend' -e "bash -c 'mkdir work && cd work && git clone https://github.com/emailbombu/sketch.git'"
-./blunk.sh
+sudo apt install xfce4-terminal
+xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./blunk.sh; bash"' -T "Run and ready"
 }
 
 drive() {
-if [ $MACHINE_TYPE = 'arm64' ]; then
-    echo $MACHINE_TYPE
-    elif [ $MACHINE_TYPE = 'aarch64' ]; then
-            echo $MACHINE_TYPE   
-        elif [ $MACHINE_TYPE = 'armhf' ]; then
-                echo $MACHINE_TYPE
-            elif [ $MACHINE_TYPE = 'armel' ]; then
-        echo "$MACHINE_TYPE does not exist on your filesystem."
-else
-    echo "Device Exists"
+#if [ $MACHINE_TYPE = 'arm64' ]; then
+#    echo $MACHINE_TYPE
+#    elif [ $MACHINE_TYPE = 'aarch64' ]; then
+#            echo $MACHINE_TYPE   
+#        elif [ $MACHINE_TYPE = 'armhf' ]; then
+#                echo $MACHINE_TYPE
+#           elif [ $MACHINE_TYPE = 'armel' ]; then
+#        echo "$MACHINE_TYPE does not exist on your filesystem."
+#else
+#    echo "Device Exists"
     if [ ! -f /dev/sda ]; then
         echo "SDA"
         elif [ ! -f /dev/sdb ]; then
             echo "SDB"
             elif [ ! -f /dev/sdc ]; then
                 echo "SDC"
-    fi
 fi
 }
 
 yab() {
-if [ -f "$FILE" ]; then
-    echo "$FILE exists."
-else 
-    echo "$FILE does not exist."
+#if [ -f "$FILE" ]; then
+#    echo "$FILE exists."
+#else 
+#    echo "$FILE does not exist."
     #wget -O sources.list https://raw.githubusercontent.com/shell832/pancake/main/sources.list
-if [ -f "$YUM" ]; then
-  echo "$YUM exists."
-else 
+#if [ -f "$YUM" ]; then
+#  echo "$YUM exists."
+#else 
 echo "Which List?"
 read wall
 if [ $wall = 'a' ]; then
@@ -101,14 +101,12 @@ if [ $wall = 'a' ]; then
      else
         sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
         sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
-   fi
-  fi
 fi
 }
 
-spunk() {
-x-terminal-emulator --tab --title='backend' -e "bash -c '~/work/sketch/blunk.sh'"]
-}
+#spunk() {
+#x-terminal-emulator --tab --title='backend' -e "bash -c '~/work/sketch/blunk.sh'"]
+#}
 
 
 link() {
