@@ -104,7 +104,7 @@ fi
 
 check
 down
-mvSource
+#mvSource
 keys
 update
 #rmDock

@@ -32,7 +32,7 @@ check() {
 echo "$MACHINE_TYPE"
 echo "Would you like to add/remove architectures?"
 read archz
-if [ $archz = 'yes' ]; then
+if [ $archz = 'yes' ]; then             #add arch rou sources file direct
         if [ $MACHINE_TYPE = 'x86_64' ]; then
             sudo dpkg --add-architecture i386
             sudo dpkg --remove-architecture armhf
