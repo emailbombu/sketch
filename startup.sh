@@ -87,17 +87,19 @@ yab() {
 #else 
 #    echo "$FILE does not exist."
     #wget -O sources.list https://raw.githubusercontent.com/shell832/pancake/main/sources.list
-#if [ -f "$YUM" ]; then
-#  echo "$YUM exists."
-#else 
+if [ -f "$YUM" ]; then
+  echo "$YUM exists."
+else
+  sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+fi
 echo "Which List?"
 read wall
 if [ $wall = 'a' ]; then
-    sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
+    #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
     sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
     elif [ $wall = 'b' ]; then
-        sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+        #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
         sudo cp ~/work/sketch/sources.list.b /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
@@ -106,10 +108,20 @@ if [ $wall = 'a' ]; then
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
-    #elif [ $wall == 'c' ]; then
-     else
-        sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+    elif [ $wall == 'c' ]; then
+        #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
         sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
+        echo "Adding GPG Keys"
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+     #else
+    elif [ $wall == 'd' ]; then
+        #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+        sudo cp ~/work/sketch/sources.list.d /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
@@ -129,7 +141,7 @@ link() {
 echo "Do You Want Remote Connection?"
 read yes
 if [ $yes = 'yes' ]; then
-        x-terminal-emulator --tab --title='backend' -e "bash -c 'vank.sh'"]
+        x-terminal-emulator --tab --title='backend' -e "bash -c 'vanko.sh'"]
         else
             echo "Hi"
 fi
