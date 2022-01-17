@@ -29,7 +29,13 @@ BOBO=~/work/sketch
 YUM=/etc/sources.list.bak
 
 check() {
-echo "$MACHINE_TYPE"
+echo "would you like me to check your machine architecture?"
+read bloop
+if [ $bloop = 'yes' ]; then  
+echo "You are running this type: $MACHINE_TYPE"
+   else
+     echo "ok cool have a nice day ;-P"
+fi
 echo "Would you like to add/remove architectures?"
 read archz
 if [ $archz = 'add' ]; then             #add arch rou sources file direct
@@ -50,8 +56,9 @@ if [ $archz = 'add' ]; then             #add arch rou sources file direct
             sudo dpkg --remove-architecture armel
             #sudo dpkg --remove-architecture arm64
 	    #sudo dpkg --remove-architecture aarch64
-        else
-          exit 0
+	else          
+		exit 0
+   fi
   fi
 fi
 }

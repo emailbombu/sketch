@@ -2,7 +2,7 @@
 
 
 deb http://http.kali.org/kali kali-rolling main non-free contrib
-#deb-src http://http.kali.org/kali kali-rolling main non-free contrib
+deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 
 #deb http://deb.debian.org/debian/ testing contrib non-free
 #deb-src http://deb.debian.org/debian/ testing contrib non-free
