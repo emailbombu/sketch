@@ -16,6 +16,8 @@ if [ $anz = 'yes' ];
     stack
 sudo apt -y install novnc x11vnc
 sudo apt -y install tightvncserver
+vncserver
+
 x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
 /usr/share/novnc/utils/launch.sh --listen 8081 --vnc localhost:5900
     elif [ $anz = 'no' ];
