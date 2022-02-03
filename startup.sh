@@ -27,6 +27,7 @@ MACHINE_TYPE=`uname -m`
 FILE=~/work
 BOBO=~/work/sketch
 YUM=/etc/sources.list.bak
+U="$USER"
 
 check() {
 echo "would you like me to check your machine architecture?"

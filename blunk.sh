@@ -63,9 +63,16 @@ sudo apt update
 echo "Fixings"
 #sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf,amd64,i386]/' /etc/apt/sources.list.d/cros.list
 echo insatalling development packages
-sudo apt -y install gnupg lsb-release build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev libglib2.0-dev libglade2-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef  gitk git-gui curl lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi 
-
-#kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-sdr kali-tools-rfid kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-tools-802-11 kali-wallpapers-all kali-desktop-xfce xtron revolt framework2 armitage metasploit* msfpc recon-ng teamsploit unicorn-magic gedit
+sudo mv /etc/apt/sources.list /etc/sources.list.temp
+sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
+sudo apt update
+sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-sdr kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-tools-802-11 kali-wallpapers-all kali-desktop-xfce xtron revolt framework2 armitage metasploit* msfpc recon-ng teamsploit unicorn-magic gedit synaptic kali-defaults-desktop kali-desktop-xfce
+sudo rm /etc/apt/sources.list
+sudo mv /etc/apt/sources.list.temp /etc/sources.list
+sudo apt update
+sudo apt -y install gnupg lsb-release build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev libglib2.0-dev libglade2-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi 
+#kali-tools-rfid ::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'.
+#libgl1-mesa-dev
 sudo apt dist-upgrade
 }
 
@@ -81,13 +88,17 @@ echo "Getting Cert"
 if [ -f "$JLOVEF" ]; then
     echo "$JLOVEF exists."
 else 
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
+#sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 echo "Installing Repo"
-sudo echo "deb [arch=armhf] https://download.docker.com/linux/debian bullseye nightly"  | sudo tee /etc/apt/sources.list.d/docker.list
-#fi
+#sudo echo "deb [arch=arm64] https://download.docker.com/linux/debian sid stable"  | sudo tee /etc/apt/sources.list.d/docker.list
+sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu hirsute stable"
 echo "Updating and Installing Docker"
 sudo apt update
-sudo apt -y install docker containerd.io
+#sudo apt -y install docker containerd.io
+sudo apt -y install docker-ce
+sudo usermod -aG docker "$U"
+fi
 }
 
 buildKernel() {
