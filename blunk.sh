@@ -75,13 +75,13 @@ sudo apt remove docker docker-engine docker.io containerd runc
 }
 
 instDock() {
-#JLOVEF=/usr/share/keyrings/docker-ce-archive-keyring.gpg
-#echo "Installing Docker"
-#echo "Getting Cert"
-#if [ -f "$JLOVEF" ]; then
-#    echo "$JLOVEF exists."
-#else 
-#sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
+JLOVEF=/usr/share/keyrings/docker-ce-archive-keyring.gpg
+echo "Installing Docker"
+echo "Getting Cert"
+if [ -f "$JLOVEF" ]; then
+    echo "$JLOVEF exists."
+else 
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
 echo "Installing Repo"
 sudo echo "deb [arch=armhf] https://download.docker.com/linux/debian bullseye nightly"  | sudo tee /etc/apt/sources.list.d/docker.list
 #fi
