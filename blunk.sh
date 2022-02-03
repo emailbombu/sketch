@@ -63,12 +63,13 @@ sudo apt update
 echo "Fixings"
 #sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf,amd64,i386]/' /etc/apt/sources.list.d/cros.list
 echo insatalling development packages
-sudo mv /etc/apt/sources.list /etc/sources.list.temp
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.temp
 sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-sdr kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-tools-802-11 kali-wallpapers-all kali-desktop-xfce xtron revolt framework2 armitage metasploit* msfpc recon-ng teamsploit unicorn-magic gedit synaptic kali-defaults-desktop kali-desktop-xfce
 sudo rm /etc/apt/sources.list
 sudo mv /etc/apt/sources.list.temp /etc/sources.list
+sudo cp ~/work/sources.list.b /etc/apt/sources.list
 sudo apt update
 sudo apt -y install gnupg lsb-release build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev libglib2.0-dev libglade2-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi 
 #kali-tools-rfid ::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'.
