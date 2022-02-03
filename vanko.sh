@@ -6,18 +6,20 @@ echo "             _"
 echo "- - - _ ---_-_-_"
 
 stack() {
-sudo apt install novnc
+echo "Hello Moto"
 }
 
 vanko() {
 echo "local listen,(yes), remote listen?(no)"
 read anz
 if [ $anz = 'yes' ];
-    utils/novnc_proxy --vnc localhost:5901 --listen localhost:6081
-
-
+    stack
+sudo apt -y install novnc x11vnc
+sudo apt -y install tightvncserver
+x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
+/usr/share/novnc/utils/launch.sh --listen 8081 --vnc localhost:5900
     elif [ $anz = 'no' ];
-        utils/novnc_proxy --vnc localhost:5901
+        #utils/novnc_proxy --vnc localhost:5901
 fi
 
 }
